@@ -1,0 +1,65 @@
+<!--https://www.youtube.com/watch?v=3-2Pj5hxwrw    2hr 05 min-->
+<!DOCTYPE html>              <!--"!(tab)"-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend tutorial</title>
+    <link rel="stylesheet" href="styles.css"> <!--"link(tab)"-->
+</head>
+<body>
+    <nav class="navbar">     <!--"nav.navbar(tab)"-->
+        <div class="nav_container">  <!--".navbar_container"-->
+            <a href="/" id="navbar_logo">Frontend</a>    <!--div and span are used so that it is easily modified by css and js through class name-->
+            <div class="navbar_toggle" id="mobile-menu"> <!--".navbar_toggle#mobile-menu(tab)"-->
+                
+                <span class="bar"></span>   <!--1st child*/ -->
+                <span class="bar"></span>   <!--/*2nd child*/-->
+                <span class="bar"></span>   <!--/*3rd child*/-->
+            </div>
+
+        </div>
+        <ul class="navbar_menu">
+            <li class="navbar_item">
+                <a href="#home" class="navbar_links" id="home-page">Home</a>
+            </li>
+            <li class="navbar_item">
+                <a href="#about" class="navbar_links" id="about-page">About</a>
+            </li>
+            <li class="navbar_item">
+                <a href="#services" class="navbar_links" id="service-page">Service</a>
+            </li>
+            <li class="navbar_button">
+                <a href="#sign-up" class="button_sign" id="sign-up-page">Sign up</a>
+            </li>
+        </ul>
+    </nav>
+    <!--Hero section-->
+    <div class="hero" id="home">     <!--Huge Banner Section-->
+        <div class="hero_container">
+            <h1 class="hero_heading">Choose your <span>distros</span></h1>
+            <p class="hero_description">May the source be with you</p>
+            <button class="navigate_btn"><a href="#">Explore</a></button>
+        </div>
+    </div>
+    <!-- About Section -->
+    <div class="main" id="about">
+        <div class="main_container">
+            <div class="main_img-container">
+                <div class="main_img-card">
+                    ICON
+                </div>
+            </div>
+        <div class="main_container">
+            <h1>What do we do?</h1>
+            <h2>We help choose </h2>
+            <p>Schedule a call to know more</p>
+            <button class="navigate_btn"><a href="#">Schedule Call</a></button>
+        </div>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
