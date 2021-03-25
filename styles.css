@@ -236,7 +236,7 @@ a {
 
 .hero {
     background: rgb(17, 17, 17);  /* fallback for old browsers */
-    padding: 200px 0;
+    padding: 100px 0;
 }
 
 .hero_container {
@@ -284,15 +284,97 @@ a {
     }
 
 }
+
+.main {
+    background: rgb(16, 16, 16);
+    padding: 50px;
+}
  .main_container { 
     display:grid;
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:1fr 1fr;   /*fr means fraction used for flexibility*/
     align-items: center;
-    justify-content: right;
+    justify-content: center;
     margin: 0 auto;
     height: 90%;
     z-index: 1;
     width: 100%;
+    height: 100%;
     max-width : 1300px;
-    padding : 0 50px;
+    color: white;
+}
+
+.main_container h1 {
+    font-size: 2.5rem;
+    background: #283c86;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #45a247, #283c86);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #45a247, #283c86); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-clip: text;    /* image is what u clip */
+    -webkit-background-clip: text;   /* for chrome safari */
+    -moz-background-clip: text;     /*for mozilla */
+    /* The background-clip property defines how far the background (color or image) should extend within an element */
+    -webkit-text-fill-color:transparent;    /* By default white color it has*/
+    -moz-text-fill-color:transparent;
+    padding-bottom: 10px;
+    
+}
+
+.main_container h2 {
+    font-size: 3.5rem;
+    color: goldenrod;
+    padding-bottom: 20px;
+
+}
+
+.main_container p {
+    font-size: 1.5rem;
+    padding-bottom: 20px;
+    font-weight: 700;   
+}
+
+.navigate_btn {
+    background: #283c86;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #45a247, #283c86);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #45a247, #283c86); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-radius: 4px;
+    width: 22rem;
+    height: 5rem;
+    transition: all 0.3s ease;
+    outline: none;    /* removes unwanted outline on the button */
+    border: transparent; /* it has a border which i made transparent */
+    position:relative;  /* every coordinate of elemts inside it will be w.r.t this */
+}
+.navigate_btn a{
+    text-decoration: none;
+    font-size: 2.8rem;
+    color:whitesmoke;
+    position: relative;
+    z-index: 2;   /* now it will display over the animation */
+}
+.navigate_btn:after {   /* Pseodo element actually class :: means elemrnt */
+    position:absolute;
+    content: '';  /* this is needed */
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #1c4dff;
+    transition: all 0.3s;
+    
+
+}
+.navigate_btn:hover {
+    /* width:24rem; 
+    height:5.5rem;
+    border-radius: 2.2rem;
+    transition: all 0.3s ease;*/
+    color: #fff;
+}
+
+.navigate_btn:hover:after {  /* hover for pseudo element */
+    width:100%;
+    border-radius: 4px;
+
+}
+.main_img-card {
+    text-align: center;
 }
