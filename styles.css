@@ -59,7 +59,7 @@ a {
      cursor: pointer;   
      text-decoration: none;
      font-size: 2rem;
-     transition: all 0.3s ease;
+     transition: all 0.3s ease; /* ease means slow start fast and slow end */
 }
 
 .navbar_menu {
@@ -132,6 +132,10 @@ a {
     display: flex;
     transition: all 0.3s ease;
 }
+.highlight {
+    border-bottom: 4px solid rgb(132, 0, 255);
+  }
+  
 @media screen and (max-width: 960px) {
     .navbar_container {
         display:flex;
@@ -169,7 +173,7 @@ a {
         padding-left: 25px;
     }
 
-    .navbar_toggle .bar{    /*for adding class of a class space is needed*/
+    .navbar_toggle .bar{    /*for adding class of a class space is needed  like h1 or a*/
         width: 25px;
         height: 3px;
         margin: 5px auto;
@@ -226,7 +230,9 @@ a {
         transform: translateY(8px) rotate(45deg);
     }
     #mobile-menu.is-active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);    /*need js to execute this for tranformations*/
+        transform: translateY(-8px) rotate(-45deg);    /*need js to execute this tranformations
+         as it needs to first  detect and then do the make mobile-menu active*/
+         /* is-active and active are their opposites in js */
     }
 
 }
@@ -284,10 +290,10 @@ a {
     }
 
 }
-
+/* About Section */
 .main {
     background: rgb(16, 16, 16);
-    padding: 50px;
+    padding: 100px;
 }
  .main_container { 
     display:grid;
@@ -302,8 +308,11 @@ a {
     max-width : 1300px;
     color: white;
 }
+.main_container#sign-up {
+    text-align: right;
+}
 
-.main_container h1 {
+.main_content h1 {
     font-size: 2.5rem;
     background: #283c86;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to top, #45a247, #283c86);  /* Chrome 10-25, Safari 5.1-6 */
@@ -318,14 +327,14 @@ a {
     
 }
 
-.main_container h2 {
+.main_content h2 {
     font-size: 3.5rem;
     color: goldenrod;
     padding-bottom: 20px;
 
 }
 
-.main_container p {
+.main_content p {
     font-size: 1.5rem;
     padding-bottom: 20px;
     font-weight: 700;   
@@ -342,23 +351,25 @@ a {
     outline: none;    /* removes unwanted outline on the button */
     border: transparent; /* it has a border which i made transparent */
     position:relative;  /* every coordinate of elemts inside it will be w.r.t this */
+    margin:10px;
 }
+
 .navigate_btn a{
     text-decoration: none;
     font-size: 2.8rem;
     color:whitesmoke;
-    position: relative;
+    position: relative; /* This makes all coordinates of its contents w.r.t. itself */
     z-index: 2;   /* now it will display over the animation */
 }
-.navigate_btn:after {   /* Pseodo element actually class :: means elemrnt */
-    position:absolute;
+.navigate_btn:after {   /* Pseodo element actually class, :: means elemrnt */
+    position:absolute;   /* this is w.r.t. the container cuz that is specified as relative */
     content: '';  /* this is needed */
     top: 0;
     left: 0;
     width: 0;
     height: 100%;
     background: #1c4dff;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
     
 
 }
@@ -375,6 +386,301 @@ a {
     border-radius: 4px;
 
 }
-.main_img-card {
+.main_img-container {
     text-align: center;
+    margin: 0px 20px;
+}
+.fa-layer-group,  
+.fa-users {
+    font-size:14rem;
+}
+.main_img-card {
+    height: 500px;
+    width: 450px;
+    display: flex;
+    flex-direction: column;       /* brings icon to center */
+    justify-content: center;
+    background: #283c86;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #45a247, #283c86);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #45a247, #283c86); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+/*  Mobile Responsive */
+@media screen and (max-width : 800px)  {
+
+    .main_container {
+        grid-template-columns: 1fr;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        
+    }
+
+    .main_img-container {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 20px;
+    }
+    .main_img-card {
+        height: 425px;
+        width: 382px;
+    }
+    .main_content {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width:540px) {
+    .main_content h1 {
+        font-size: 2rem;
+    }
+    .main_content h2 {
+        font-size: 3rem;
+    }
+    .navigate_btn a{
+        font-size: 2.5rem;
+    }
+}
+
+/* Service section */
+
+.services {
+    background-color: rgb(17, 17, 17);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 10rem 0;
+}
+.services h1 {
+    font-size: 2.5rem;
+    background: #283c86;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #45a247 0%, #283c86 100%);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #45a247, #283c86); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-clip: text;    /* image is what u clip */
+    -webkit-background-clip: text;   /* for chrome safari */
+    -moz-background-clip: text;     /*for mozilla */
+    /* The background-clip property defines how far the background (color or image) should extend within an element */
+    -webkit-text-fill-color:transparent;    /* By default white color it has*/
+    -moz-text-fill-color:transparent;
+    padding-bottom: 2.5rem;
+}
+
+.services_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+.services_card {
+    height: 425px;
+    width: 300px;
+    border-radius: 4px;
+    justify-content: center;
+    text-align: center;
+    color:  white;
+    background: #283c86;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #45a247 0%, #283c86 100%);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #45a247 0%, #283c86 100%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    margin: 20px;   /* this is needed when you place them in 2 rows o4 rows */
+    /* Try to use margin for spacing between elements */
+    /* when using padding here it will pad around the text cuz the only other object is 
+    background which is not to be padded upon */
+    display:flex;
+    flex-direction: column;  /* If u dont specify this it will 
+    take row-wise if 1 row not enough */
+    transition: all 0.3s ease;
+
+}
+/* For specefic customization of the elements under the same class name(children)
+you have to use nth-child */
+
+.services_card:nth-child(1) {
+    background: #b92b27;  /* fallback for old browsers */
+background: -webkit-linear-gradient(-255deg, #1565C0, #b92b27);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(-255deg, #1565C0, #b92b27); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.services_card:nth-child(3) {
+    background: #b92b27;  /* fallback for old browsers */
+background: -webkit-linear-gradient(-255deg, cyan, magenta);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(-255deg, cyan, magenta); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.services_card:nth-child(4) {
+    background: #b92b27;  /* fallback for old browsers */
+background: -webkit-linear-gradient(45deg, brown 0%, green 100%);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(45deg, brown 0%, green 100%) ; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.services_card p {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.services_button {
+    display:flex;
+    justify-content: center;
+    margin-top: 16px;
+    /* to edit looks of the button you have to edit the tag itself and not the container */
+}
+
+.services_button button {
+    background-color: black;
+    color:white;
+    border-radius: 4px;
+    height: 40px;
+    width: 90px;
+    font-size: 1rem;
+}
+.services_button button:hover {
+    cursor: pointer;
+}
+
+.services_card:hover {
+    transform: scale(1.075);
+    transition: all 0.3s ease;
+    cursor: pointer
+}
+
+@media screen and (max-width: 1320px) {
+    .services_container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .services_container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Footer Section*/
+
+.footer_container {
+    background:rgb(27, 27, 27);
+    padding: 5rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#footer_logo {
+    color: white;
+    display:flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 2rem;
+}
+.footer_links {
+    width: 100%;  /* if it doesnt exeed 2000px */
+    max-width: 2000px;
+    display: flex;
+    justify-content: center;
+}
+
+.footer_link-wrapper {
+    display: flex;
+}
+
+.footer_link-items {
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 16px;
+    box-sizing: border-box;
+    text-align: left;
+    width:160px;
+}
+
+.footer_link-items h2 {
+    margin-bottom: 10px;
+    color: white;
+}
+.footer_link-items a {
+    color: oldlace;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.footer_link-items#R a:hover {
+    color:red;
+    transition: all 0.3s ease;
+
+}
+.footer_link-items#B a:hover {
+    color:rgb(0, 255, 234);
+    transition: all 0.3s ease;
+
+}
+.footer_link-items#G a:hover {
+    color:lightgreen;
+    transition: all 0.3s ease;
+
+}
+.footer_link-items#Y a:hover {
+    color:rgb(255, 0, 212);
+    transition: all 0.3s ease;
+
+}
+
+.social_icon--link {
+    color: white;
+    font-size: 24px;
+}
+
+.social_media {
+    max-width: 1000px;
+    width:100%;
+}
+
+.social_media--wrap {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:90%;
+    max-width: 1000px;
+    margin: 40px auto 0 auto;
+}
+.social_icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 240px;
+}
+.website_rights {
+    color: white;
+}
+@media screen and (max-width:820px) {
+    .footer_links {
+        padding-top: 2rem;
+    }
+    #footer_logo {
+        padding-right: 20px;
+        margin-bottom: 2rem;
+    }
+
+    .website_rights {
+        margin-bottom: 2rem;
+    }
+    .footer_link-wrapper {
+        flex-direction: column;
+    }
+
+    .social_media--wrap{
+        flex-direction: column;
+    }
+}
+
+@media screen  and (max-width:480px) {
+    .footer_link-items{
+        margin:0;
+        padding: 10px;
+        width:100%;
+    }
+    
 }
