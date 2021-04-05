@@ -20,7 +20,7 @@ a {
     scroll-behavior: smooth;
 
 }
-
+/* '*' means all the elements */
  .navbar {
      background-color: black;
      height: 80px;
@@ -186,12 +186,12 @@ a {
         cursor: pointer;
     }
     .navbar_item {
-        width: 100vh;
+        width: 100%;
     }
     .navbar_links {
         text-align:center;
         padding: 2rem;
-        width:100vh;
+        width:100%;
         display: table;
     }
     .navbar_button {
@@ -208,11 +208,11 @@ a {
         justify-content: center;
         text-decoration: none;
         height: 80px;
-        width: 60%;
+        width: 60vw;
     }
     .button_sign:hover{
         height: 90px;
-        width: 70%;
+        width: 70vw;
         display: flex;
         font-size: 2rem;
         transition: all 0.3s ease;
@@ -415,6 +415,16 @@ a {
         width: 100%;
         
     }
+    .main#sign-up #sign_content{
+        order: 2;
+    }
+    .main#sign-up #sign_img{
+        order: 1;
+    } /* Exchange the grid elements using order */
+.fa-layer-group,  
+.fa-users {
+    font-size:7rem;
+}
 
     .main_img-container {
         display: flex;
@@ -431,15 +441,45 @@ a {
 }
 
 @media screen and (max-width:540px) {
+    /* Mobile Menu is 360 in motog4 and this was the most problematic area giving horizontal scrollbar */
+    /* Namely main_content and main_img-card */
+    /* Good solution is to use viewport width */
+    .main#sign-up #sign_content{
+        order: 2;
+    }
+    .main#sign-up #sign_img{
+        order: 1;
+    } /* Exchange the grid elements using order */
+    .main_content {
+        width:100vw;
+        /* This as a whole had more width but element widths are fine */
+    }
     .main_content h1 {
         font-size: 2rem;
+        width:100vw;
     }
     .main_content h2 {
-        font-size: 3rem;
+        font-size: 2.7rem;
+        width:100vw;
+    }
+    .main_content p {
+        width:100vw;
+    }
+    .navigate_btn {
+        width:90vw;
+        /* For some reason maybe padding or margin it was not fitting so decreased the overall width */
     }
     .navigate_btn a{
         font-size: 2.5rem;
     }
+    .main_img-card {
+        height: 95vw;
+        width: 85vw;
+    }
+    .fa-layer-group,  
+.fa-users {
+    font-size:4.5rem;
+}
 }
 
 /* Service section */

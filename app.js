@@ -1,7 +1,12 @@
 const mobileMenu = document.querySelector('#mobile-menu')
 const navbarMenu = document.querySelector('.navbar_menu') 
 const navbarLogo = document.querySelector('#navbar_logo')
+
 // querySelector is used for class   // class name and all which is not possible for getbyId
+
+//if(window.innerWidth <= 580) {
+//    document.getElementById('sign_content').style.order = 2
+//}  tried this but didn't work
 
 const togglemobileMenu = () => {
     mobileMenu.classList.toggle('is-active')
