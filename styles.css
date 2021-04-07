@@ -44,26 +44,30 @@ a {
      padding: 0 50px;
  }
 
- #navbar_logo {
+ .navbar_logo_container {
      background-image: #283c86;  /* fallback for old browsers */
     background-image: -webkit-linear-gradient(to top, #45a247, #283c86);  /* Chrome 10-25, Safari 5.1-6 */
     background-image: linear-gradient(to top, #45a247, #283c86); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     left:0;
     top:0;
-    color: rgba(255,255,255,0);
      background-size: 100%;
      background-clip: text;
      -webkit-background-clip: text;
      -moz-background-clip: text;
+     color: rgba(255,255,255,0);
      -webkit-text-fill-color: rgba(255, 255, 255, 0);
      -moz-text-fill-color: rgba(255, 255, 255, 0);
+     margin-left:10px;
      display: flex;
-     padding-left: 25px;
      align-items: center;    
      cursor: pointer;   
      text-decoration: none;
      font-size: 2rem;
      transition: all 0.3s ease; /* ease means slow start fast and slow end */
+}
+
+#navbar_logo {
+    transition: all 0.3s ease;
 }
 
 .navbar_menu {
@@ -173,10 +177,6 @@ a {
         font-size: 1.6rem;
     }
     
-    #navbar_logo {
-        padding-left: 25px;
-    }
-
     .navbar_toggle .bar{    /*for adding class of a class space is needed  like h1 or a*/
         width: 25px;
         height: 3px;
@@ -343,7 +343,14 @@ a {
     padding-bottom: 20px;
     font-weight: 700;   
 }
+.navbtn {
+    text-decoration: none;
+    font-size: 2.8rem;
+    color:whitesmoke;
+    position: relative; /* This makes all coordinates of its contents w.r.t. itself */
+    z-index: 2;   /* now it will display over the animation */
 
+}
 .navigate_btn {
     background: #283c86;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #45a247, #283c86);  /* Chrome 10-25, Safari 5.1-6 */
@@ -356,16 +363,11 @@ a {
     border: transparent; /* it has a border which i made transparent */
     position:relative;  /* every coordinate of elemts inside it will be w.r.t this */
     margin:10px;
+    cursor: pointer;
 }
 
-.navigate_btn a{
-    text-decoration: none;
-    font-size: 2.8rem;
-    color:whitesmoke;
-    position: relative; /* This makes all coordinates of its contents w.r.t. itself */
-    z-index: 2;   /* now it will display over the animation */
-}
-.navigate_btn:after {   /* Pseodo element actually class, :: means elemrnt */
+
+.navigate_btn:after {   /* Pseodo element actually class, :: means element */
     position:absolute;   /* this is w.r.t. the container cuz that is specified as relative */
     content: '';  /* this is needed */
     top: 0;
